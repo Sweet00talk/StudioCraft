@@ -71,6 +71,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Tetapan 4:2:2 (Kualiti Penyiaran)"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="• Mampatan warna sederhana (Standard TV/Filem).\n• Kualiti visual yang seimbang dengan saiz fail."
+            android:textColor="#E0E0E0"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Tetapan 4:2:0 (Standard Streaming)"
             android:textColor="#ff27b5"
             android:textSize="16sp"
@@ -93,7 +110,7 @@
         android:background="@drawable/cyberpunk_button_bg"
         android:backgroundTint="@null"
         android:text="WATCH TUTORIAL"
-        android:textColor="#ff27b5"
+        android:textColor="#F8F8F8"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/nav_divider"

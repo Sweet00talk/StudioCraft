@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://tools.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,123 +9,204 @@
     tools:context=".ObsActivity">
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_title_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-condensed"
         android:text="OBS SETTINGS"
         android:textColor="#00e8ff"
-        android:textSize="32sp"
+        android:textSize="28sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="0dp"
+        android:id="@+id/tv_subtitle_settings"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:text="Chroma Subsampling (Mampatan Isyarat Warna Video)"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:text="Chroma Subsampling"
+        android:textColor="#EF4444"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title_settings" />
 
-    <LinearLayout
-        android:id="@+id/obs_info_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:background="#0c1424"
-        android:orientation="vertical"
-        android:padding="16dp"
+    <ScrollView
+        android:id="@+id/scroll_settings_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/btn_tutorial"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle_settings">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tetapan 4:4:4 (Kualiti Penuh)"
-            android:textColor="#00e8ff"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="• Tiada mampatan warna dibuat.\n• Video sangat tajam tetapi guna internet tinggi."
-            android:textColor="#E0E0E0"
-            android:textSize="13sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="#0c1424"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tetapan 4:2:2 (Kualiti Penyiaran)"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="95dp"
+                    android:background="#FFFFFF"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/chroma_444" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="• Mampatan warna sederhana (Standard TV/Filem).\n• Kualiti visual yang seimbang dengan saiz fail."
-            android:textColor="#E0E0E0"
-            android:textSize="13sp" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tetapan 4:2:0 (Standard Streaming)"
-            android:textColor="#ff27b5"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Setting 4:4:4 (Full Quality)"
+                        android:textColor="#00e8ff"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="• Mengurangkan warna untuk jimat saiz fail.\n• Pilihan terbaik untuk kelancaran stream."
-            android:textColor="#E0E0E0"
-            android:textSize="13sp" />
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• No color compression; images and text are extremely sharp.\n• Requires very high bitrate and CPU/GPU performance."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="#0c1424"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="95dp"
+                    android:background="#FFFFFF"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/chroma_422" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Setting 4:2:2 (Broadcast Quality)"
+                        android:textColor="#FACC15"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• Moderate color compression, ideal for TV/Film and green screens.\n• Balanced visual quality without heavy storage usage."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="#0c1424"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="95dp"
+                    android:background="#FFFFFF"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/chroma_420" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Setting 4:2:0 (Standard Streaming)"
+                        android:textColor="#ff27b5"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• High color compression to save file size and internet bandwidth.\n• Best choice for smooth Live Streaming performance."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_tutorial"
         android:layout_width="220dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="30dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/cyberpunk_button_bg"
-        android:backgroundTint="@null"
-        android:text="WATCH TUTORIAL"
-        android:textColor="#F8F8F8"
-        android:textSize="18sp"
+        android:text="TUTORIAL"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/nav_divider"
+        app:layout_constraintBottom_toTopOf="@id/nav_divider_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/nav_divider"
+        android:id="@+id/nav_divider_settings"
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="#00e8ff"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_settings" />
 
     <LinearLayout
-        android:id="@+id/bottom_navigation"
+        android:id="@+id/bottom_navigation_settings"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#0c1424"
@@ -198,4 +279,5 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

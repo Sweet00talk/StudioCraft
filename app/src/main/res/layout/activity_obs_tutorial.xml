@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/purple_bg">
+    android:background="@drawable/purple_bg"
+    tools:context=".ObsTutorialActivity">
 
     <TextView
         android:id="@+id/tv_title"
@@ -14,26 +16,210 @@
         android:fontFamily="sans-serif-condensed"
         android:text="OBS TUTORIAL"
         android:textColor="#00e8ff"
-        android:textSize="28sp"
+        android:textSize="35sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="DRAG ANSWER TO THE CORRECT BOX:"
+        android:textColor="#00e8ff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
     <ScrollView
+        android:id="@+id/scroll_game"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="24dp"
-        app:layout_constraintBottom_toTopOf="@id/nav_divider"
-        app:layout_constraintTop_toBottomOf="@id/tv_title">
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/source_zone"
+        app:layout_constraintTop_toBottomOf="@id/tv_instruction">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Langkah 1: Kenalpasti jenis sumber video anda.\n\nLangkah 2: Jika menggunakan kamera lama, gunakan Interlaced (1080i).\n\nLangkah 3: Untuk gaming, pastikan setting adalah Progressive (1080p) untuk mengelakkan imej pecah."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <ImageView
+                    android:id="@+id/iv_444"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/chroma_444"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/target_1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/target_dashed_border"
+                    android:gravity="center"
+                    android:text="DROP ANSWER HERE"
+                    android:textColor="#55FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="#1A0C1424"
+                android:padding="8dp"
+                android:text="Full quality without color compression. Extremely sharp image (ideal for text elements)"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <ImageView
+                    android:id="@+id/iv_422"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/chroma_422"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/target_2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/target_dashed_border"
+                    android:gravity="center"
+                    android:text="DROP ANSWER HERE"
+                    android:textColor="#55FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="#1A0C1424"
+                android:padding="8dp"
+                android:text="Medium color compression. Standard quality used in the TV and film broadcasting industry."
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <ImageView
+                    android:id="@+id/iv_420"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/chroma_420"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/target_3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/target_dashed_border"
+                    android:gravity="center"
+                    android:text="DROP ANSWER HERE"
+                    android:textColor="#55FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="#1A0C1424"
+                android:padding="8dp"
+                android:text="Significantly reduces color data to save file size (Best option for live streaming)."
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/source_zone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/nav_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/kad_444"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/cyberpunk_button_bg"
+            android:backgroundTint="#ff27b5"
+            android:text="4:4:4"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/kad_422"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/cyberpunk_button_bg"
+            android:backgroundTint="#ff27b5"
+            android:text="4:2:2"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/kad_420"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/cyberpunk_button_bg"
+            android:backgroundTint="#ff27b5"
+            android:text="4:2:0"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <View
         android:id="@+id/nav_divider"
@@ -118,4 +304,5 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

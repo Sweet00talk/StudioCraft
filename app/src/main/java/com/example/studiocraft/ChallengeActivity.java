@@ -65,6 +65,7 @@ public class ChallengeActivity extends AppCompatActivity {
             return insets;
         });
 
+
         // Set Animasi Naik
         Animation slideUp = AnimationUtils.loadAnimation(this, R.anim.fade_slide_up);
         findViewById(R.id.tv_title).startAnimation(slideUp);
@@ -88,11 +89,36 @@ public class ChallengeActivity extends AppCompatActivity {
         btnOpt3.setOnClickListener(v -> checkAnswer(2));
         btnOpt4.setOnClickListener(v -> checkAnswer(3));
 
-        // Bar Navigasi Bawah (Butang HOME)
+        // =========================================================
+        // SAMBUNGKAN NAVIGASI BAR DI BAHAGIAN BAWAH
+        // =========================================================
         LinearLayout navHome = findViewById(R.id.nav_home);
+        LinearLayout navTask = findViewById(R.id.nav_task);
+        LinearLayout navHelp = findViewById(R.id.nav_help);
+
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
+                Intent intent = new Intent(ChallengeActivity.this, MenuActivity.class);
+                // Flag untuk pastikan dia bersih serta matikan skrin bertimbun di belakang
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
+            });
+        }
+
+        if (navTask != null) {
+            navTask.setOnClickListener(v -> {
+                Intent intent = new Intent(ChallengeActivity.this, ChallengeActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
+        if (navHelp != null) {
+            navHelp.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), HelpActivity.class);
+                startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });
         }
@@ -114,9 +140,9 @@ public class ChallengeActivity extends AppCompatActivity {
     private void checkAnswer(int selectedOptionIndex) {
         if (selectedOptionIndex == correctAnswers[currentQuestionIndex]) {
             score++;
-            Toast.makeText(this, "CORRECT! 🎉", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "CORRECT! ", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "WRONG! ❌", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "WRONG! ", Toast.LENGTH_SHORT).show();
         }
 
         // Pergi ke soalan seterusnya

@@ -33,9 +33,13 @@ public class HelpActivity extends AppCompatActivity {
             tvTitle.startAnimation(slideUp);
         }
         findViewById(R.id.help_scrollview).startAnimation(slideUp);
-
-        // Kawalan Navigasi Bar Bawah: Pulang ke Menu Utama (Home)
+        // =========================================================
+        // SAMBUNGKAN NAVIGASI BAR DI BAHAGIAN BAWAH
+        // =========================================================
         LinearLayout navHome = findViewById(R.id.nav_home);
+        LinearLayout navTask = findViewById(R.id.nav_task);
+        LinearLayout navHelp = findViewById(R.id.nav_help);
+
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
                 Intent intent = new Intent(HelpActivity.this, MenuActivity.class);
@@ -44,6 +48,22 @@ public class HelpActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
+            });
+        }
+
+        if (navTask != null) {
+            navTask.setOnClickListener(v -> {
+                Intent intent = new Intent(HelpActivity.this, ChallengeActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
+        if (navHelp != null) {
+            navHelp.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), HelpActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });
         }
     }

@@ -32,9 +32,13 @@ public class ScanningTutorialActivity extends AppCompatActivity {
             tvTitle.startAnimation(slideUp);
         }
 
-        // Fungsi klik tab HOME pada bar navigasi bawah untuk patah balik
-        // Fungsi klik tab HOME untuk terus lompat ke Menu Utama
+        // =========================================================
+        // SAMBUNGKAN NAVIGASI BAR DI BAHAGIAN BAWAH
+        // =========================================================
         LinearLayout navHome = findViewById(R.id.nav_home);
+        LinearLayout navTask = findViewById(R.id.nav_task);
+        LinearLayout navHelp = findViewById(R.id.nav_help);
+
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
                 Intent intent = new Intent(ScanningTutorialActivity.this, MenuActivity.class);
@@ -43,6 +47,22 @@ public class ScanningTutorialActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
+            });
+        }
+
+        if (navTask != null) {
+            navTask.setOnClickListener(v -> {
+                Intent intent = new Intent(ScanningTutorialActivity.this, ChallengeActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
+        if (navHelp != null) {
+            navHelp.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), HelpActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });
         }
     }

@@ -6,6 +6,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -34,10 +36,33 @@ public class ScanningActivity extends AppCompatActivity {
             tvTitle.startAnimation(slideUp);
         }
 
+
+        // =========================================================
+        // SAMBUNGKAN NAVIGASI BAR DI BAHAGIAN BAWAH
+        // =========================================================
         LinearLayout navHome = findViewById(R.id.nav_home);
+        LinearLayout navTask = findViewById(R.id.nav_task);
+        LinearLayout navHelp = findViewById(R.id.nav_help);
+
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
                 finish();
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
+        if (navTask != null) {
+            navTask.setOnClickListener(v -> {
+                Intent intent = new Intent(ScanningActivity.this, ChallengeActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
+        if (navHelp != null) {
+            navHelp.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), HelpActivity.class);
+                startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });
         }

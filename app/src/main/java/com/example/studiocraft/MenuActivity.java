@@ -98,7 +98,7 @@ public class MenuActivity extends AppCompatActivity {
 
         if (navHome != null) {
             navHome.setOnClickListener(v ->
-                    Toast.makeText(MenuActivity.this, "Anda berada di Home!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(MenuActivity.this, "You at Home Page!", Toast.LENGTH_SHORT).show()
             );
         }
 

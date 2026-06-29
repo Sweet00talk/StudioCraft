@@ -2,6 +2,7 @@ package com.example.studiocraft;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
@@ -25,16 +26,41 @@ public class ScanningTutorialActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Mainkan animasi pada tajuk skrin tutorial
+        // Animations
         Animation slideUp = AnimationUtils.loadAnimation(this, R.anim.fade_slide_up);
         TextView tvTitle = findViewById(R.id.tv_title);
-        if (tvTitle != null) {
-            tvTitle.startAnimation(slideUp);
+        LinearLayout layoutInterlaced = findViewById(R.id.layout_interlaced);
+        LinearLayout layoutProgressive = findViewById(R.id.layout_progressive);
+
+        if (tvTitle != null) tvTitle.startAnimation(slideUp);
+        if (layoutInterlaced != null) layoutInterlaced.startAnimation(slideUp);
+        if (layoutProgressive != null) layoutProgressive.startAnimation(slideUp);
+
+        // Interactive Click Logic for Tutorial Cards
+        TextView tvInterlacedExtra = findViewById(R.id.tv_interlaced_extra);
+        TextView tvProgressiveExtra = findViewById(R.id.tv_progressive_extra);
+
+        if (layoutInterlaced != null && tvInterlacedExtra != null) {
+            layoutInterlaced.setOnClickListener(v -> {
+                if (tvInterlacedExtra.getVisibility() == View.GONE) {
+                    tvInterlacedExtra.setVisibility(View.VISIBLE);
+                } else {
+                    tvInterlacedExtra.setVisibility(View.GONE);
+                }
+            });
         }
 
-        // =========================================================
-        // SAMBUNGKAN NAVIGASI BAR DI BAHAGIAN BAWAH
-        // =========================================================
+        if (layoutProgressive != null && tvProgressiveExtra != null) {
+            layoutProgressive.setOnClickListener(v -> {
+                if (tvProgressiveExtra.getVisibility() == View.GONE) {
+                    tvProgressiveExtra.setVisibility(View.VISIBLE);
+                } else {
+                    tvProgressiveExtra.setVisibility(View.GONE);
+                }
+            });
+        }
+
+        // Bottom Navigation
         LinearLayout navHome = findViewById(R.id.nav_home);
         LinearLayout navTask = findViewById(R.id.nav_task);
         LinearLayout navHelp = findViewById(R.id.nav_help);
@@ -42,26 +68,21 @@ public class ScanningTutorialActivity extends AppCompatActivity {
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
                 Intent intent = new Intent(ScanningTutorialActivity.this, MenuActivity.class);
-                // Flag ini akan menutup semua skrin di atas MenuActivity
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
             });
         }
-
         if (navTask != null) {
             navTask.setOnClickListener(v -> {
-                Intent intent = new Intent(ScanningTutorialActivity.this, ChallengeActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(ScanningTutorialActivity.this, ChallengeActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });
         }
-
         if (navHelp != null) {
             navHelp.setOnClickListener(v -> {
-                Intent intent = new Intent(v.getContext(), HelpActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(v.getContext(), HelpActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });
         }

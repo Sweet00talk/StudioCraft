@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/purple_bg">
-
+    <!-- PAGE TITLE -->
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
@@ -20,21 +21,195 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- MAIN CONTENT -->
     <ScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/tutorial_scroll"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="18dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintBottom_toTopOf="@id/nav_divider"
-        app:layout_constraintTop_toBottomOf="@id/tv_title">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Langkah 1: Kenalpasti jenis sumber video anda.\n\nLangkah 2: Jika menggunakan kamera lama, gunakan Interlaced (1080i).\n\nLangkah 3: Untuk gaming, pastikan setting adalah Progressive (1080p) untuk mengelakkan imej pecah."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:orientation="vertical">
+
+            <!-- STEP NUMBER -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STEP 6"
+                android:textColor="#ff27b5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed" />
+
+            <!-- TUTORIAL HEADING -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Connect DisplayPort Cable"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- DESCRIPTION -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="4dp"
+                android:text="Drag and drop the correct DisplayPort connector into the gaming monitor port to successfully light up the screen."
+                android:textColor="#E6FFFFFF"
+                android:textSize="15sp" />
+
+            <!-- VISUAL TUTORIAL CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/tutorial_card_bg"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TUTORIAL"
+                    android:textColor="#00e8ff"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic"
+                    android:fontFamily="sans-serif-condensed" />
+
+                <!-- MONITOR AREA -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/monitor_screen_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gaming Monitor"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Screen is OFF"
+                        android:textColor="#BDBDBD"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <!-- DRAG AREA -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- DISPLAYPORT CONNECTOR -->
+                    <LinearLayout
+                        android:layout_width="105dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/connector_box_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DisplayPort"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Connector"
+                            android:textColor="#DADADA"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <!-- ARROW -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="14dp"
+                        android:text="➜"
+                        android:textColor="#00e8ff"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <!-- MONITOR PORT -->
+                    <LinearLayout
+                        android:layout_width="105dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/port_box_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monitor"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Port"
+                            android:textColor="#DADADA"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- EXTRA NOTE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/tutorial_note_bg"
+                android:lineSpacingExtra="4dp"
+                android:padding="16dp"
+                android:text="Tip: DisplayPort is commonly used for gaming monitors because it can support high resolution and high refresh rate output."
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
     </ScrollView>
 
+    <!-- NAV DIVIDER -->
     <View
         android:id="@+id/nav_divider"
         android:layout_width="match_parent"
@@ -42,6 +217,7 @@
         android:background="#00e8ff"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
 
+    <!-- BOTTOM NAVIGATION -->
     <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -58,15 +234,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@android:drawable/star_big_on"
                 app:tint="#00e8ff" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,6 +252,7 @@
                 android:textColor="#00e8ff"
                 android:textSize="10sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -81,13 +260,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
             android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@android:drawable/ic_menu_myplaces"
                 app:tint="#ff27b5" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,6 +278,7 @@
                 android:textColor="#ff27b5"
                 android:textSize="10sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -102,13 +286,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
             android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@android:drawable/ic_menu_help"
                 app:tint="#9333EA" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,6 +304,9 @@
                 android:textColor="#9333EA"
                 android:textSize="10sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
